@@ -1,210 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>EthAddressLookup</title>
-    <link rel="stylesheet" href="css/skyblue.min.css" type="text/css"/>
-    <link rel="stylesheet" href="css/app.css" type="text/css"/>
+    <link rel="stylesheet" href="css/skyblue.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
 </head>
+
 <body id="ext-smartaddressprotection-popup">
-<div id="content">
-    <h4 class="text-center">ScamAddressProtection\</h4>
+    <div id="content">
+        <h4 class="text-center">ScamAddressProtection</h4>
 
-    <div id="ext-smartaddressprotection-bookmarks" class="ext-smartaddressprotection-center">
-        <!--- populated by js/app/toggleBookmarks.js showBookmarks() -->
-    </div>
+        <div id="ext-smartaddressprotection-bookmarks" class="ext-smartaddressprotection-center">
+            <!--- populated by js/app/toggleBookmarks.js showBookmarks() -->
+        </div>
 
-    <a target="_blank" href="https://cryptoscamdb.org/report/" class="btn btn-sm btn-error"
-       id="ext-smartaddressprotection-report"><img width="16" height="16" src="images/flag.png"> Report a domain</a>
+        <a target="_blank" href="https://cryptoscamdb.org/report/" class="btn btn-sm btn-error"
+            id="ext-smartaddressprotection-report"><img width="16" height="16" src="images/flag.png"> Report a
+            domain</a>
+        <br />
 
-    <br/>
-
-    <div>
-        <ul class="ext-smartaddressprotection-nav ext-smartaddressprotection-nav-tabs" id="ext-smartaddressprotection-tab" role="tablist" style="margin-bottom: 1rem">
-            <li class="ext-smartaddressprotection-nav-item">
-                <a class="ext-smartaddressprotection-nav-link active" id="ext-smartaddressprotection-options-tab" data-toggle="ext-smartaddressprotection-tab" data-duration="350" data-height="true" href="#ext-smartaddressprotection-options" role="tab" aria-controls="ext-smartaddressprotection-options" aria-expanded="true">
-                    Options
-                </a>
-            </li>
-            <li class="ext-smartaddressprotection-nav-item">
-                <a class="ext-smartaddressprotection-nav-link" id="ext-smartaddressprotection-labels-tab" data-toggle="ext-smartaddressprotection-tab" data-duration="350" data-height="true" href="#ext-smartaddressprotection-labels" role="tab" aria-controls="ext-smartaddressprotection-labels" aria-expanded="false">
-                    Labels
-                </a>
-            </li>
-            <li class="ext-smartaddressprotection-nav-item">
-                <a class="ext-smartaddressprotection-nav-link" id="ext-smartaddressprotection-chain_lookup-tab" data-toggle="ext-smartaddressprotection-tab" data-duration="350" data-height="true" href="#ext-smartaddressprotection-chain_lookup" role="tab" aria-controls="ext-smartaddressprotection-chain_lookup" aria-expanded="false">
-                    Lookup
-                </a>
-            </li>            
-        </ul>
-
-        <div class="ext-smartaddressprotection-tab-content" id="ext-smartaddressprotection-tab-content">
-
-            <!-- OPTIONS PANEL -->
-            <div class="ext-smartaddressprotection-tab-pane fade active show" id="ext-smartaddressprotection-options" role="tabpanel" aria-labelledby="ext-smartaddressprotection-options-tab" aria-expanded="true">
-                <label class="fancy-checkbox">
-                    <input type="checkbox" name="ext-smartaddressprotection-show_style" id="ext-smartaddressprotection-show_style">
-                    <span>Highlight Matches</span>
-                </label>
-
-                <label class="fancy-checkbox">
-                    <input type="checkbox" name="ext-smartaddressprotection-perform_address_lookups" id="ext-smartaddressprotection-perform_address_lookups">
-                    <span>Perform address lookups</span> <sup>[<a href="https://github.com/franz101/ScamAddressProtection\/wiki/Address-Lookups" target="_blank">?</a>]</sup>
-                </label>
-
-                <label class="fancy-checkbox">
-                    <input type="checkbox" name="ext-smartaddressprotection-twitter_validation" id="ext-smartaddressprotection-twitter_validation">
-                    <span>Twitter Badges</span> <sup>[<a href="https://github.com/franz101/ScamAddressProtection\/wiki/Twitter-Badges" target="_blank">?</a>]</sup>
-
-                    <a href="https://hive.one/?ref=ScamAddressProtection\" target="_blank">
-                        <img title="Hive.one has provided a lot of the Twitter accounts that are 'verified'" src="/images/hiveone.png" style="height:25px;width:30px;vertical-align:middle;"/>
+        <div>
+            <ul class="ext-smartaddressprotection-nav ext-smartaddressprotection-nav-tabs"
+                id="ext-smartaddressprotection-tab" role="tablist" style="margin-bottom: 1rem">
+                <li class="ext-smartaddressprotection-nav-item">
+                    <a class="ext-smartaddressprotection-nav-link active" id="ext-smartaddressprotection-options-tab"
+                        data-toggle="ext-smartaddressprotection-tab" data-duration="350" data-height="true"
+                        href="#ext-smartaddressprotection-options" role="tab"
+                        aria-controls="ext-smartaddressprotection-options" aria-expanded="true">
+                        Options
                     </a>
+                </li>
+                <li class="ext-smartaddressprotection-nav-item">
+                    <a class="ext-smartaddressprotection-nav-link" id="ext-smartaddressprotection-labels-tab"
+                        data-toggle="ext-smartaddressprotection-tab" data-duration="350" data-height="true"
+                        href="#ext-smartaddressprotection-labels" role="tab"
+                        aria-controls="ext-smartaddressprotection-labels" aria-expanded="false">
+                        Labels
+                    </a>
+                </li>
+                <li class="ext-smartaddressprotection-nav-item">
+                    <a class="ext-smartaddressprotection-nav-link" id="ext-smartaddressprotection-chain_lookup-tab"
+                        data-toggle="ext-smartaddressprotection-tab" data-duration="350" data-height="true"
+                        href="#ext-smartaddressprotection-chain_lookup" role="tab"
+                        aria-controls="ext-smartaddressprotection-chain_lookup" aria-expanded="false">
+                        Lookup
+                    </a>
+                </li>
+            </ul>
 
-                </label>
+            <div class="ext-smartaddressprotection-tab-content" id="ext-smartaddressprotection-tab-content">
 
-                <label class="fancy-checkbox">
-                    <input type="checkbox" name="ext-smartaddressprotection-blacklist_domains" id="ext-smartaddressprotection-blacklist_domains">
-                    <span>Warn of blacklisted domains</span> <sup>[<a href="https://github.com/franz101/ScamAddressProtection\/wiki/Blacklisted-Domains" target="_blank">?</a>]</sup>
-                </label>
-                <div id="ext-smartaddressprotection-blacklist_domains_stats">
-                    <input type="checkbox" name="ext-smartaddressprotection-3rd_party_blacklist_domains" id="ext-smartaddressprotection-3rd_party_blacklist_domains"> Use 3rd party blacklists <br />
-                    <input type="checkbox" name="ext-smartaddressprotection-block_punycode_blacklist_domains" id="ext-smartaddressprotection-block_punycode_blacklist_domains"> Block all punycode domains <br /> <br />
-                    <small>Last updated: <span id="ext-smartaddressprotection-blacklist_domains_last_updated">N/A</span></small>
-                    <br/>
-                    <small>Domains Blacklisted: <span id="ext-smartaddressprotection-blacklist_domains_total_count">0</span>
-                                                (<span id="ext-smartaddressprotection-3p_blacklist_domains_total_count">0</span>)
-                    </small>
-                </div>
+                <!-- OPTIONS PANEL -->
+                <div class="ext-smartaddressprotection-tab-pane fade active show"
+                    id="ext-smartaddressprotection-options" role="tabpanel"
+                    aria-labelledby="ext-smartaddressprotection-options-tab" aria-expanded="true">
+                    <label class="fancy-checkbox">
+                        <input type="checkbox" name="ext-smartaddressprotection-show_style"
+                            id="ext-smartaddressprotection-show_style">
+                        <span>Highlight Matches</span>
+                    </label>
 
-                <label>Preferred Blockchain Explorer</label>
-                <select class="form-control" name="ext-smartaddressprotection-choose_blockchain"
+                    <label class="fancy-checkbox">
+                        <input type="checkbox" name="ext-smartaddressprotection-perform_address_lookups"
+                            id="ext-smartaddressprotection-perform_address_lookups">
+                        <span>Perform address lookups</span> <sup>[<a
+                                href="https://github.com/franz101/ScamAddressProtection\/wiki/Address-Lookups"
+                                target="_blank">?</a>]</sup>
+                    </label>
+
+                    <label class="fancy-checkbox">
+                        <input type="checkbox" name="ext-smartaddressprotection-twitter_validation"
+                            id="ext-smartaddressprotection-twitter_validation">
+                        <span>Twitter Badges</span> <sup>[<a
+                                href="https://github.com/franz101/ScamAddressProtection\/wiki/Twitter-Badges"
+                                target="_blank">?</a>]</sup>
+
+                        <a href="https://hive.one/?ref=ScamAddressProtection\" target="_blank">
+                            <img title="Hive.one has provided a lot of the Twitter accounts that are 'verified'"
+                                src="/images/hiveone.png" style="height:25px;width:30px;vertical-align:middle;" />
+                        </a>
+
+                    </label>
+
+                    <label class="fancy-checkbox">
+                        <input type="checkbox" name="ext-smartaddressprotection-blacklist_domains"
+                            id="ext-smartaddressprotection-blacklist_domains">
+                        <span>Warn of blacklisted domains</span> <sup>[<a
+                                href="https://github.com/franz101/ScamAddressProtection\/wiki/Blacklisted-Domains"
+                                target="_blank">?</a>]</sup>
+                    </label>
+                    <div id="ext-smartaddressprotection-blacklist_domains_stats">
+                        <input type="checkbox" name="ext-smartaddressprotection-3rd_party_blacklist_domains"
+                            id="ext-smartaddressprotection-3rd_party_blacklist_domains"> Use 3rd party blacklists <br />
+                        <input type="checkbox" name="ext-smartaddressprotection-block_punycode_blacklist_domains"
+                            id="ext-smartaddressprotection-block_punycode_blacklist_domains"> Block all punycode domains
+                        <br /> <br />
+                        <small>Last updated: <span
+                                id="ext-smartaddressprotection-blacklist_domains_last_updated">N/A</span></small>
+                        <br />
+                        <small>Domains Blacklisted: <span
+                                id="ext-smartaddressprotection-blacklist_domains_total_count">0</span>
+                            (<span id="ext-smartaddressprotection-3p_blacklist_domains_total_count">0</span>)
+                        </small>
+                    </div>
+
+                    <label>Preferred Blockchain Explorer</label>
+                    <select class="form-control" name="ext-smartaddressprotection-choose_blockchain"
                         id="ext-smartaddressprotection-choose_blockchain">
-                    <optgroup label="Mainnet">
-                        <option data-network="1" value="https://etherscan.io/address">Etherscan.io *</option>
-                        <option data-network="1" value="https://etherchain.org/account">Etherchain.org *</option>
-                        <option data-network="1" value="https://ethplorer.io/address">Ethplorer.io</option>
-                    </optgroup>
-                    <optgroup label="Rinkeby">
-                        <option data-network="4" value="https://rinkeby.etherscan.io/address">Etherscan.io *</option>
-                    </optgroup>
-                    <optgroup label="Ropsten">
-                        <option data-network="3" value="https://ropsten.etherscan.io/address">Etherscan.io *</option>
-                    </optgroup>
-                    <optgroup label="Kovan">
-                        <option data-network="42" value="https://kovan.etherscan.io/address">Etherscan.io *</option>
-                    </optgroup>
-                    <optgroup label="Goerli">
-                        <option data-network="5" value="https://goerli.etherscan.io/address">Etherscan.io *</option>
-                        <option data-network="5" value="https://blockscout.com/eth/goerli">Blockscout</option>
-                    </optgroup>                    
-                </select>
-                <div class="ext-smartaddressprotection-note">
-                    <small>* ENS address compatible.</small>
-                    <div class="ext-smartaddressprotection-note_network_diff"></div>
-                </div>
-            </div>
-
-            <!-- LABELS PANEL -->
-            <div class="ext-smartaddressprotection-tab-pane fade " id="ext-smartaddressprotection-labels" role="tabpanel" aria-labelledby="ext-smartaddressprotection-labels-tab" aria-expanded="false">
-                <!-- New Label -->
-                <div id="ext-smartaddressprotection-new-labels">
-
-                    <p><b>New Label:</b></p>
-                    <form id="ext-smartaddressprotection-new-label-form">
-                        <input
-                            class="form-control"
-                            type="text"
-                            name="ext-smartaddressprotection-label-name"
-                            id="ext-smartaddressprotection-label-name"
-                            placeholder="Label Name"
-                        />
-                        <input
-                            class="form-control"
-                            type="text"
-                            name="ext-smartaddressprotection-label-address"
-                            id="ext-smartaddressprotection-label-address"
-                            placeholder="ETH Wallet Address"
-                        />
-                        <select
-                            class="form-control"
-                            name="ext-smartaddressprotection-label-color"
-                            id="ext-smartaddressprotection-label-color"
-                        >
-                            <option style="background-color: #dc3545;" value="dc3545">Red</option>
-                            <option style="background-color: #ffad13;" value="ffad13">Orange</option>
-                            <option style="background-color: #ffdc00;" value="ffdc00">Yellow</option>
-                            <option style="background-color: #28a745;" value="28a745">Green</option>
-                            <option style="background-color: #17a2b8;" value="17a2b8">Blue</option>
-                            <option style="background-color: #6634b8;" value="6634b8">Purple</option>
-                            <option style="background-color: #000000;" value="000000">Black</option>
-                            <option style="background-color: #808080;" value="808080">Grey</option>
-                            <option style="background-color: #ffffff;color:#303030;" value="ffffff">White</option>
-                        </select>
-                        <button class="btn btn-success btn-small" type="submit">Save</button>
-                    </form>
-
-                </div>
-
-                <hr/>
-
-                <!-- Existing Labels -->
-                <div>
-                    <p><b>Your Labels:</b></p>
-
-                    <div id="ext-smartaddressprotection-current-labels">
-                        <!-- Populated from storage -->
+                        <optgroup label="Mainnet">
+                            <option data-network="1" value="https://etherscan.io/address">Etherscan.io *</option>
+                            <option data-network="1" value="https://etherchain.org/account">Etherchain.org *</option>
+                            <option data-network="1" value="https://ethplorer.io/address">Ethplorer.io</option>
+                        </optgroup>
+                        <optgroup label="Rinkeby">
+                            <option data-network="4" value="https://rinkeby.etherscan.io/address">Etherscan.io *
+                            </option>
+                        </optgroup>
+                        <optgroup label="Ropsten">
+                            <option data-network="3" value="https://ropsten.etherscan.io/address">Etherscan.io *
+                            </option>
+                        </optgroup>
+                        <optgroup label="Kovan">
+                            <option data-network="42" value="https://kovan.etherscan.io/address">Etherscan.io *</option>
+                        </optgroup>
+                        <optgroup label="Goerli">
+                            <option data-network="5" value="https://goerli.etherscan.io/address">Etherscan.io *</option>
+                            <option data-network="5" value="https://blockscout.com/eth/goerli">Blockscout</option>
+                        </optgroup>
+                    </select>
+                    <div class="ext-smartaddressprotection-note">
+                        <small>* ENS address compatible.</small>
+                        <div class="ext-smartaddressprotection-note_network_diff"></div>
                     </div>
                 </div>
-            </div>
 
-            <div class="ext-smartaddressprotection-tab-pane fade " id="ext-smartaddressprotection-chain_lookup" role="tabpanel" aria-labelledby="ext-smartaddressprotection-chain_lookup-tab" aria-expanded="false">
-                <div id="ext-smartaddressprotection-chain_lookup_container">
-                    <h3>Lookups</h3>
-                    <p>Input a transaction hash or an Ethereum address to find out more details about it.</p>
-                    <div id="ext-smartaddressprotection-chain_lookup_details"></div>
+                <!-- LABELS PANEL -->
+                <div class="ext-smartaddressprotection-tab-pane fade " id="ext-smartaddressprotection-labels"
+                    role="tabpanel" aria-labelledby="ext-smartaddressprotection-labels-tab" aria-expanded="false">
+                    <!-- New Label -->
+                    <div id="ext-smartaddressprotection-new-labels">
 
-                    <br />
-                    
-                    <form id="ext-smartaddressprotection-chain_lookup_form">
-                        <input class="form-control" type="text" name="ext-smartaddressprotection-addr_or_tx" id="ext-smartaddressprotection-addr_or_tx" placeholder="0x address or tx hash" autocomplete="off" />
-                        <button class="btn btn-success btn-small" type="submit">Lookup</button>
-                    </form>
+                        <p><b>New Label:</b></p>
+                        <form id="ext-smartaddressprotection-new-label-form">
+                            <input class="form-control" type="text" name="ext-smartaddressprotection-label-name"
+                                id="ext-smartaddressprotection-label-name" placeholder="Label Name" />
+                            <input class="form-control" type="text" name="ext-smartaddressprotection-label-address"
+                                id="ext-smartaddressprotection-label-address" placeholder="ETH Wallet Address" />
+                            <select class="form-control" name="ext-smartaddressprotection-label-color"
+                                id="ext-smartaddressprotection-label-color">
+                                <option style="background-color: #dc3545;" value="dc3545">Red</option>
+                                <option style="background-color: #ffad13;" value="ffad13">Orange</option>
+                                <option style="background-color: #ffdc00;" value="ffdc00">Yellow</option>
+                                <option style="background-color: #28a745;" value="28a745">Green</option>
+                                <option style="background-color: #17a2b8;" value="17a2b8">Blue</option>
+                                <option style="background-color: #6634b8;" value="6634b8">Purple</option>
+                                <option style="background-color: #000000;" value="000000">Black</option>
+                                <option style="background-color: #808080;" value="808080">Grey</option>
+                                <option style="background-color: #ffffff;color:#303030;" value="ffffff">White</option>
+                            </select>
+                            <button class="btn btn-success btn-small" type="submit">Save</button>
+                        </form>
 
-                    <div id="ext-smartaddressprotection-chain_lookup_output">
+                    </div>
 
+                    <hr />
+
+                    <!-- Existing Labels -->
+                    <div>
+                        <p><b>Your Labels:</b></p>
+
+                        <div id="ext-smartaddressprotection-current-labels">
+                            <!-- Populated from storage -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ext-smartaddressprotection-tab-pane fade " id="ext-smartaddressprotection-chain_lookup"
+                    role="tabpanel" aria-labelledby="ext-smartaddressprotection-chain_lookup-tab" aria-expanded="false">
+                    <div id="ext-smartaddressprotection-chain_lookup_container">
+                        <h3>Lookups</h3>
+                        <p>Input a transaction hash or an Ethereum address to find out more details about it.</p>
+                        <div id="ext-smartaddressprotection-chain_lookup_details"></div>
+
+                        <br />
+
+                        <form id="ext-smartaddressprotection-chain_lookup_form">
+                            <input class="form-control" type="text" name="ext-smartaddressprotection-addr_or_tx"
+                                id="ext-smartaddressprotection-addr_or_tx" placeholder="0x address or tx hash"
+                                autocomplete="off" />
+                            <button class="btn btn-success btn-small" type="submit">Lookup</button>
+                        </form>
+
+                        <div id="ext-smartaddressprotection-chain_lookup_output">
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div id="footer">
-        <div class="ext-smartaddressprotection-center">
-            <a href="/settings.html" target="_blank">More Settings</a> &mdash;
-            <a href="https://cryptoscamdb.org/" target="_blank">CryptoScamDB</a> &mdash;
-            <a href="https://github.com/franz101/ScamAddressProtection\" target="_blank">GitHub</a> <br />
-            <a href="https://twitter.com/EthAddrLookup" target="_blank">@EthAddrLookup</a> &mdash;
-            <a href="https://twitter.com/CryptoPhishing" target="_blank">@CryptoPhishing</a>
+        <div id="footer">
+            <div class="ext-smartaddressprotection-center">
+                <a href="/settings.html" target="_blank">More Settings</a> &mdash;
+                <a href="https://cryptoscamdb.org/" target="_blank">CryptoScamDB</a> &mdash;
+                <a href="https://github.com/franz101/ScamAddressProtection\" target="_blank">GitHub</a> <br />
+                <a href="https://twitter.com/EthAddrLookup" target="_blank">@EthAddrLookup</a> &mdash;
+                <a href="https://twitter.com/CryptoPhishing" target="_blank">@CryptoPhishing</a>
+            </div>
+
+            <small><strong>Version:</strong> <span id="ext-manifest_version"></span> &mdash; BETA</small>
+            <div id="ext-smartaddressprotection-rpc_node_details" style="display:inline;position:absolute;right:1em;">
+                RPC Network: <span></span></div>
         </div>
-
-        <small><strong>Version:</strong> <span id="ext-manifest_version"></span> &mdash; BETA</small> 
-        <div id="ext-smartaddressprotection-rpc_node_details" style="display:inline;position:absolute;right:1em;">RPC Network: <span></span></div>
     </div>
-</div>
 
-<script src="js/app/lib/web3.js"></script>
-<script src="js/app/lib/blockies.js"></script>
-<script src="js/app/toggleMatchHighlight.js"></script>
-<script src="js/app/toggleTwitterValidation.js"></script>
-<script src="js/app/chooseBlockchain.js"></script>
-<script src="js/app/toggleBlacklistDomains.js"></script>
-<script src="js/app/toggleBookmarks.js"></script>
-<script src="/js/app/toggleAddressLookups.js"></script>
-<script src="js/app/lib/nat-twbs-modal-popover.js"></script>
-<script src="js/labels.js"></script>
-<script src="js/options/labels.js"></script>
-<script src="js/chainlookup.js"></script>
-<script src="js/options/chainlookup.js"></script>
-<script src="js/options.js"></script>
+    <script src="js/app/lib/web3.js"></script>
+    <script src="js/app/lib/blockies.js"></script>
+    <script src="js/app/toggleMatchHighlight.js"></script>
+    <script src="js/app/toggleTwitterValidation.js"></script>
+    <script src="js/app/chooseBlockchain.js"></script>
+    <script src="js/app/toggleBlacklistDomains.js"></script>
+    <script src="js/app/toggleBookmarks.js"></script>
+    <script src="/js/app/toggleAddressLookups.js"></script>
+    <script src="js/app/lib/nat-twbs-modal-popover.js"></script>
+    <script src="js/labels.js"></script>
+    <script src="js/options/labels.js"></script>
+    <script src="js/chainlookup.js"></script>
+    <script src="js/options/chainlookup.js"></script>
+    <script src="js/options.js"></script>
 </body>
+
 </html>

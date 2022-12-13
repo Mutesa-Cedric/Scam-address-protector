@@ -345,7 +345,7 @@ try {
                             });
 
                             chrome.browserAction.setTitle({
-                                title: "ScamAddressProtection\ (Powered by MyCrypto)",
+                                title: "ScamAddressProtection (Powered by MyCrypto)",
                             });
 
                             break;
