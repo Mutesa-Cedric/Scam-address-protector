@@ -69,7 +69,7 @@ class TwitterFakeAccount
             var objWhitelistedIcon = document.createElement("img");
             objWhitelistedIcon.src = chrome.runtime.getURL('/images/twitter/neutral.png');
             objWhitelistedIcon.style = "display:inline;height:25px;width:25px;left:15px;";
-            objWhitelistedIcon.title = "This account is not categorized by ScamAddressProtection\";
+            objWhitelistedIcon.title = "This account is not categorized by ScamAddressProtection";
             objAccountDetails.append(objWhitelistedIcon);
         }
     }
@@ -89,7 +89,7 @@ class TwitterFakeAccount
             var objWhitelistedIcon = document.createElement("img");
             objWhitelistedIcon.src = chrome.runtime.getURL('/images/twitter/blacklisted.png');
             objWhitelistedIcon.style = "display:inline;height:25px;width:25px;left:15px;";
-            objWhitelistedIcon.title = "This account is blacklisted by ScamAddressProtection\";
+            objWhitelistedIcon.title = "This account is blacklisted by ScamAddressProtection";
             objAccountDetails.append(objWhitelistedIcon);
         }
     }
@@ -109,7 +109,7 @@ class TwitterFakeAccount
             var objWhitelistedIcon = document.createElement("img");
             objWhitelistedIcon.src = chrome.runtime.getURL('/images/twitter/whitelisted.png');
             objWhitelistedIcon.style = "display:inline;height:25px;width:25px;left:15px;";
-            objWhitelistedIcon.title = "This account is whitelisted by ScamAddressProtection\";
+            objWhitelistedIcon.title = "This account is whitelisted by ScamAddressProtection";
             objAccountDetails.append(objWhitelistedIcon);
         }
     }

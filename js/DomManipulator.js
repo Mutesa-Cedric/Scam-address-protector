@@ -6,7 +6,7 @@ const ADDRESS_DISPLAY_POPUP_CLASS_NAME = `${EXT_PREFIX}-display-popup`;
 const ATTRIBUTE_ADDRESS_UNIQUE_ID = `data-${EXT_PREFIX}-address-unique-id`;
 const LABEL_LOADED_ATTRIBUTE = `data-${EXT_PREFIX}-label-loaded`;
 
-class ScamAddressProtection\ {
+class ScamAddressProtection {
     constructor(objWeb3, labels)
     {
         this.objWeb3 = objWeb3;
