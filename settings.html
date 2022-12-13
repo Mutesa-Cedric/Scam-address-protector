@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EthAddressLookup Settings</title>
+    <link rel="stylesheet" href="css/skyblue.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+    <link rel="stylesheet" href="css/settings.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+          integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+</head>
+<body>
+    <h3>ScamAddressProtection\ Settings</h3>
+
+    <div class="pure-g">
+        <div class="setting-container pure-u-1-2 pure-u-xl-1-2 pure-u-lg-1-2 pure-u-md-1-2 pure-u-sm-1-1">
+            <h3>Bookmarks</h3>
+            <p>Enabling bookmarks will show trusted site favicons on the extension so you don't have to rely on links. These
+            are customisable, so please make sure you bookmark the correct links.</p>
+            <p>By adding domains to your bookmarks, the ScamAddressProtection\ extension icon will change color <img src="/images/ether-128x128-green_badge.png" id="ext-icon-whitelisted" /> to indicate that you
+                trust the domain. <br /> <strong>Note:</strong> This will act on the domain itself (<code>domain.com</code>), <u>not</u> the specific directory (<code>domain.com/foo</code>) or query string (<code>domain.com/?q=foo</code>).
+            </p>
+            <label class="fancy-checkbox">
+                <input type="checkbox" name="ext-smartaddressprotection-show_bookmarks" id="ext-smartaddressprotection-show_bookmarks">
+                <span id="ext-smartaddressprotection-show_bookmarks_text">Enabled</span>
+            </label>
+
+            <br />
+
+            <table class="pure-table pure-table-striped" id="ext-smartaddressprotection-bookmarks_table">
+                <thead>
+                    <th>Icon</th>
+                    <th>URL</th>
+                    <th>&nbsp;</th>
+                </thead>
+                <tbody>
+                    <!--- populated by js/app/toggleBookmarks.js showBookmarks() -->
+                </tbody>
+            </table>
+
+            <!---- Modify Bookmark Window --->
+            <div id="ext-smartaddressprotection-bookmark_modify_window">
+                <h3>Modify Bookmark</h3>
+                <form method="post" action="" class="pure-form pure-form-aligned" id="ext-smartaddressprotection-bookmark_modify_form">
+                    <div class="pure-control-group">
+                        <label for="icon">Icon</label>
+                        <input type="text" placeholder="The URL to the icon" id="ext-smartaddressprotection-bookmark_modify_icon">
+                        <span class="pure-form-message note">Leave the value blank unless you want a custom icon.</span>
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="link">Link</label>
+                        <input type="text" placeholder="The URL to bookmark" id="ext-smartaddressprotection-bookmark_modify_url">
+                    </div>
+
+                    <input type="hidden" id="ext-smartaddressprotection-bookmark_modify_id">
+                    <button type="submit" class="pure-button pure-button-primary">Save</button>
+                </form>
+                <br />
+                <div class="pure-button pure-button-secondary ext-button-small " id="ext-smartaddressprotection-bookmark_modify_remove">Remove bookmark</div>
+            </div>
+        </div>
+        <div class="setting-container pure-u-1-2 pure-u-xl-1-2 pure-u-lg-1-2 pure-u-md-1-2 pure-u-sm-1-1">
+            <h3>History Check</h3>
+            <p>We are updating our blacklists regularly, and you may have visited a domain that we now consider
+                malicious. You can use this tool to let EAL inspect your browser history and see if you've visited
+                such domain. EAL will then give you some advice pointers on what to do if it finds something. <br /><br />
+
+                <span class="ext-smartaddressprotection-note">
+                    <strong>Note:</strong>
+                    None of your browser history is communicated anywhere, all the checks are done locally. You may need to
+                    accept the permission request for EAL to access your browser history. Running this check will be the <i>only</i>
+                    time EAL looks at your browser history. Once the check is done, the permission will be removed.
+                </span>
+            </p>
+
+            <br /><br />
+
+            <div id="ext-smartaddressprotection-history_inspect_data" class="hide-me">
+
+            </div>
+
+            <br /><br />
+
+            <button id="ext-smartaddressprotection-history_inspect">Inspect History Now</button> <br />
+            <small class="ext-smartaddressprotection-note">EAL will inspect the last 500 history entries</small>
+            <h3></h3>
+        </div>
+    </div>
+
+    <div class="pure-g">
+        <div class="setting-container pure-u-2-3">
+            <h3>RPC Node</h3>
+            <p>Here you can set the RPC node (ie: <code>http://localhost:8545</code>) for address lookups. EAL supplies a mainnet
+                one for you that is maintained by <a href="https://www.quiknode.io?tap_a=22610-7a7484&tap_s=150933-0c5904" target="_blank">Quiknode</a>, but you may want to use your own.</p>
+            <p>Overwriting the default node will be helpful if you want lookups done on a testnet.</p>
+            <div class="warning margin-15 hide-me" id="ext-smartaddressprotection-rpcnode_errors"></div>
+            <div class="success margin-15 hide-me" id="ext-smartaddressprotection-rpcnode_success">
+                RPC Node setting has been updated. <br />
+                <span id="ext-smartaddressprotection-rpcnode_connected_status"></span>
+                <span id="ext-smartaddressprotection-rpcnode_details"></span>
+            </div>
+
+            <p>
+                <span id="ext-smartaddressprotection-rpcnode_current_details"></span>
+            </p>
+
+            <form method="post" action="" class="pure-form pure-form-aligned" id="ext-smartaddressprotection-rpcnode_modify_form">
+                <div class="pure-control-group">
+                    <label for="ext-smartaddressprotection-rpcnode_modify_url">RPC Node:</label>
+                    <input type="text" name="rpcnode" placeholder="localhost:8545" id="ext-smartaddressprotection-rpcnode_modify_url">
+                </div>
+
+                <button type="reset" class="pure-button pure-button-secondary" id="ext-smartaddressprotection-rpcnode_reset_form">Reset to Default</button>
+                <button type="submit" class="pure-button pure-button-primary">Save</button>
+            </form>
+
+            <br />
+            
+            <p>Get your own ETH node at <a href="https://www.quiknode.io?tap_a=22610-7a7484&tap_s=150933-0c5904" target="_blank">Quiknode</a></p>
+            <p>Network mapping: <a href="https://chainid.network/" target="_blank">https://chainid.network/</a></p>
+        </div>
+        <div class="setting-container pure-u-1-3">
+            <h3>Signature Inject</h3>
+            <p>You can disable the functionality that injects the ScamAddressProtection\ signature into webpages. The
+            signature injection is used so 3rd party websites can see if you have ScamAddressProtection\ installed or not. This
+            can be used by sites to prompt you to install EAL for various reasons, especially to prevent you from landing
+            on fake sites.</p>
+
+            <div class="success margin-15 hide-me" id="ext-smartaddressprotection-signature_success">
+                Setting has been saved.
+            </div>
+
+            <form method="post" action="" class="pure-form pure-form-aligned" id="ext-smartaddressprotection-signature_modify_form">
+                <div class="pure-control-group">
+                    <label for="ext-smartaddressprotection-signature_modify_checkbox">Enabled:</label>
+                    <input type="checkbox" name="signature" id="ext-smartaddressprotection-signature_modify_checkbox">
+                </div>
+
+                <button type="submit" class="pure-button pure-button-primary">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="pure-g">
+        <div class="setting-container pure-u-2-3">
+            <h3>Special Thanks</h3>
+            <p>I'd like to dedicate this block to thank the 3rd party teams for maintaining their blacklists.</p>
+            <ul>
+                <li>
+                    <a target="_blank" href="https://www.phishfort.com/?ref=ScamAddressProtection\">PhishFort</a> &mdash;
+                        <a target="_blank" href="https://raw.githubusercontent.com/phishfort/phishfort-lists/master/blacklists/domains.json">See Blacklist</a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://www.segasec.com/?ref=ScamAddressProtection\">Segasec</a> &mdash;
+                        <a target="_blank" href="https://segasec.github.io/PhishingFeed/phishing-domains-sha256.json">See Blacklist</a>
+                </li>
+            </ul>
+            <br />
+            <p>I'd also like to say thanks to <a target="_blank" href="https://hive.one?ref=ScamAddressProtection\">hive.one</a> for providing a list of verified Twitter handles that we <a target="_blank" href="https://twitter.com/EthAddrLookup/status/1010298949796851713">use since v1.18.2</a>.</p>
+        </div>
+
+        <div class="setting-container pure-u-1-3">
+          
+        </div>
+    </div>
+<script src="js/app/lib/web3.js"></script>
+<script src="js/app/toggleBookmarks.js"></script>
+<script src="js/app/lib/URI.min.js"></script>
+<script src="js/app/historyInspector.js"></script>
+<script src="js/app/rpcNodeSelector.js"></script>
+<script src="js/app/signatureSelector.js"></script>
+</body>
+</html>

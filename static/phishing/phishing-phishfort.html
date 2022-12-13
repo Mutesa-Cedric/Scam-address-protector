@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>EAL Warning (PHISHFORT)</title>
+      <link rel="icon" href="/images/ether-128x128.png"/>
+      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+      <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <style>
+        body {
+          background: #00c2c1;
+          font-family: 'Montserrat', sans-serif;
+          color: #000;
+          padding: 0;
+          margin: 5% 0%;
+        }
+
+        .content {
+            margin: auto auto;
+            background: #fff;
+            width: 80%;
+            height: 80%;
+            border-radius: 1em;
+        }
+
+        .content > div, .content > h1 {
+            padding: 1% 2%;
+        }
+
+        .content > h1 {
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        #note {
+            text-align: center;
+            font-weight: 800;
+            color: #9c9c9c;
+        }
+        
+        #warn {
+            font-size: 30pt;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #more-info {
+            border-radius: 0 0 0% 0%;
+            background: #ffcc4d;
+            padding-bottom: 1em;
+        }
+
+        ul > li {
+            padding: 5px;
+        }
+
+        .hide-me {
+            display: none;
+        }
+
+        .notice {
+            padding-left: 10px;
+            margin: 30px 0;
+        }
+
+        #punycode {
+            border-left: 4px solid #D4C490;
+        }
+
+        #levenshtein {
+            border-left: 4px solid #2150a7;
+        }
+
+        #blacklisted {
+            border-left: 4px solid #D49990;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+        <h1>
+            <i class="em em-warning" id="warn"></i> ATTENTION
+        </h1>
+        <div>
+            <p id="note">
+              <img src="/images/antiphishing/phishfort.png" width="120px"> <br />
+              With the help of <a href="https://www.phishfort.com/">PhishFort</a>, we have detected the domain to have malicious intent and have prevented you from interacting with it.
+            </p>
+            <br />
+            <div id="punycode" class="notice hide-me">
+                <p>This domain is blocked because you have <strong>blocked all punycode domains</strong> (this is default behaviour). <br />
+                   If you  want to access this domain and you're sure it's safe, please <a href="https://github.com/franz101/ScamAddressProtection\/wiki/Blacklisted-Domains#punycode-domains" target="_blank">disable the behaviour</a> in the ScamAddressProtection\ settings.</p>
+            </div>
+            <div id="levenshtein" class="notice hide-me">
+                <p>This domain is blocked because it is too similar to a domain in our fuzzy list.<br />
+                   If you  want to access this domain and you're sure it's safe, please <a href="https://github.com/franz101/ScamAddressProtection\/wiki/Blacklisted-Domains#levenshtien-domains" target="_blank">disable the behaviour</a> in the ScamAddressProtection\ settings.</p>
+            </div>
+            <div id="blacklisted" class="notice hide-me">
+                <p>This domain is blocked because it is on phishforts blacklist.<br />
+                   If you  want to access this domain and you're sure it's safe, please <a href="https://github.com/franz101/ScamAddressProtection\/wiki/Blacklisted-Domains#blacklisted-domains" target="_blank">disable the behaviour</a> in the ScamAddressProtection\ settings.</p>
+            </div>            
+            <p>This is because you have enabled <span>Warn of blacklisted domains</span> setting on <img src="../../images/ether-16x16.png"  alt="ScamAddressProtection\ Icon" />ScamAddressProtection\ Browser Extension.</p>
+            <p>You can turn this setting off, but it's advised not to as we blacklisted the domain for a reason.</p>
+            <br />
+            <p>If you feel this domain is wrongly blacklisted, please <a href="https://github.com/franz101/ScamAddressProtection\/issues/new">open a new issue on GitHub</a></p>
+            <p><strong>To read more about this, visit <a id="link-etherscamdb" href="">https://etherscamdb.info/domain/</a></strong></p>
+        </div>
+        <div id="more-info">
+            <h3>Helpful Tips:</h3>
+            <p>
+                <ul>
+                    <li><strong>Links sent to you unprovoked are often malicious.</strong> 
+                        If you arrived here form a link sent to you via Slack, DM, Twitter, Email, it is likely someone 
+                        trying to trick you so they can steal your crypto.</li>
+                    <li><strong>Try seeking out a trustworthy, secure link on your own.</strong> Top Google results (not 
+                        Google Ads!), Verified Twitter accounts, or asking someone you know & trust. Once you find the 
+                        correct URL, bookmark it!</li>
+                </ul>
+            </p>
+        </div>
+        
+    </div>
+    <script src="phishing-notices.js"></script>
+  </body>
+</html>

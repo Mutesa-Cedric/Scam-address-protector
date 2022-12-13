@@ -1,0 +1,106 @@
+body {
+  background: #00c2c1;
+  padding: 50px;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  font-weight: 600;
+}
+
+body .hide-me {
+  display: none;
+}
+
+body h3 {
+  font-size: 23pt;
+}
+
+.pure-g {
+  margin-bottom: 5%;
+}
+
+.pure-g .setting-container {
+  background: #fff;
+  color: #000;
+  border: 2px solid #00a9a8;
+  padding: 15px;
+}
+
+.pure-g .setting-container p {
+  font-size: 10pt;
+  font-weight: 500;
+  color: #717171;
+}
+
+.pure-g .setting-container p .label {
+  font-weight: 700;
+}
+
+.pure-table {
+  width: 100%;
+}
+
+.ext-smartaddressprotection-note {
+  color: #757575;
+  font-style: italic;
+  font-size: 10pt;
+}
+
+.ext-smartaddressprotection-note.ext-smartaddressprotection-history_good {
+  margin: 5px;
+  color: #fff;
+  background: #00c2c1;
+  padding: 2px;
+}
+
+.ext-smartaddressprotection-note.ext-smartaddressprotection-history_bad {
+  margin: 5px;
+  color: #fff;
+  background: #c2654c;
+  padding: 2px;
+}
+
+#ext-smartaddressprotection-bookmark_modify_remove {
+  font-size: 85%;
+  background: #ca3c3c;
+  color: #fff;
+}
+
+#donate_address {
+  font-size: 80%;
+  background: #fffdfd;
+  padding: 2px;
+  border: 1px solid #ffe4e4;
+  color: #009d9c;
+  border-radius: 2px;
+}
+
+.error {
+  background: #fff;
+  padding: 2px;
+  color: #c2654c;
+  border: 2px solid #b6583e;
+  text-align: center;
+}
+
+.warning {
+  background: #ffe700;
+  padding: 2px;
+  color: #a98500;
+  border: 2px solid #fae200;
+  text-align: center;
+}
+
+.success {
+  background: #49bd51;
+  padding: 2px;
+  color: #fff;
+  border: 2px solid #45bc4d;
+  text-align: center;
+}
+
+#ext-icon-whitelisted {
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+}
+/*# sourceMappingURL=settings.css.map */
